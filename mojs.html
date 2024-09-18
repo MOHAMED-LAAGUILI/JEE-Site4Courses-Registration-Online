@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 10 Examples of Using mo.js</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #animation-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <h1>Top 10 Examples of Using mo.js</h1>
+
+  <div id="animation-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mo-js@0.288.2/build/mo.min.js"></script>
+  <script>
+    const container = document.getElementById('animation-container');
+
+    // Example 1: Burst Animation
+    const burst = new mojs.Burst({
+      parent: container,
+      radius: { 0: 300 },
+      count: 50,
+      children: {
+        shape: 'circle',
+        fill: 'black',
+        duration: 5000,
+        delay: 'stagger(0, 200)',
+        easing: 'cubic.out'
+      }
+    }).play();
+
+    // Example 2: Shape Swirl Animation
+    const swirl = new mojs.ShapeSwirl({
+      parent: container,
+      radius: { 0: 50 },
+      fill: 'yellow',
+      duration: 1500,
+      delay: 500,
+      easing: 'elastic.out'
+    }).play();
+
+    // Example 3: Timeline Animation
+    const timeline = new mojs.Timeline();
+    const shape1 = new mojs.Shape({
+      parent: container,
+      shape: 'circle',
+      fill: 'black',
+      radius: { 0: 50 },
+      duration: 1000
+    });
+    const shape2 = new mojs.Shape({
+      parent: container,
+      shape: 'circle',
+      fill: 'red',
+      radius: { 0: 50 },
+      duration: 1000,
+      delay: 500
+    });
+    timeline.add(shape1, shape2);
+    timeline.play();
+
+    // Examples 4-10: Add your own examples here
+
+  </script>
+</body>
+</html>

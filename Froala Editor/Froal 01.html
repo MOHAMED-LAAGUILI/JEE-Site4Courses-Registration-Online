@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Froala Editor Examples</title>
+    <!-- Include Froala Editor CSS and JS from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.1.2/css/froala_editor.pkgd.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.1.2/js/froala_editor.pkgd.min.js"></script>
+</head>
+<body>
+    <h1>Froala Editor Examples</h1>
+
+    <!-- Example 1: Basic Usage -->
+    <h2>Example 1: Basic Usage</h2>
+    <div id="editor1"></div>
+
+    <!-- Example 2: Custom Toolbar -->
+    <h2>Example 2: Custom Toolbar</h2>
+    <div id="editor2"></div>
+
+    <!-- Example 3: Image Insertion -->
+    <h2>Example 3: Image Insertion</h2>
+    <div id="editor3"></div>
+
+    <!-- Example 4: Formatting Options -->
+    <h2>Example 4: Formatting Options</h2>
+    <div id="editor4"></div>
+
+    <!-- Example 5: Lists and Indentation -->
+    <h2>Example 5: Lists and Indentation</h2>
+    <div id="editor5"></div>
+
+    <!-- Example 6: Link Insertion -->
+    <h2>Example 6: Link Insertion</h2>
+    <div id="editor6"></div>
+
+    <!-- Example 7: Table Insertion -->
+    <h2>Example 7: Table Insertion</h2>
+    <div id="editor7"></div>
+
+    <!-- Example 8: Code Editing -->
+    <h2>Example 8: Code Editing</h2>
+    <div id="editor8"></div>
+
+    <!-- Example 9: Read-Only Mode -->
+    <h2>Example 9: Read-Only Mode</h2>
+    <div id="editor9" contenteditable="false">This content is read-only.</div>
+
+    <!-- Example 10: Event Handling -->
+    <h2>Example 10: Event Handling</h2>
+    <div id="editor10"></div>
+
+    <script>
+        // Initialize Froala editors
+        new FroalaEditor('#editor1');
+        new FroalaEditor('#editor2', {
+            toolbarButtons: ['bold', 'italic', 'underline']
+        });
+        new FroalaEditor('#editor3', {
+            imageUploadURL: '/upload_image'
+        });
+        new FroalaEditor('#editor4', {
+            toolbarButtons: ['fontSize', 'paragraphFormat']
+        });
+        new FroalaEditor('#editor5', {
+            toolbarButtons: ['indent', 'outdent', 'insertUnorderedList', 'insertOrderedList']
+        });
+        new FroalaEditor('#editor6', {
+            toolbarButtons: ['insertLink']
+        });
+        new FroalaEditor('#editor7', {
+            toolbarButtons: ['insertTable']
+        });
+        new FroalaEditor('#editor8', {
+            toolbarButtons: ['codeView']
+        });
+        new FroalaEditor('#editor10', {
+            events: {
+                'contentChanged': function () {
+                    console.log('Editor content changed.');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

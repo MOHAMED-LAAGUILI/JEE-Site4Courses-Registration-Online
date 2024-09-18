@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chosen Library Examples</title>
+    <!-- Include jQuery and Chosen library CSS and JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+</head>
+<body>
+    <h1>Chosen Library Examples</h1>
+
+    <!-- Example 1: Basic Usage -->
+    <h2>Example 1: Basic Usage</h2>
+    <select class="chosen-select" data-placeholder="Choose a country...">
+        <option value=""></option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <!-- Example 2: Multiple Selection -->
+    <h2>Example 2: Multiple Selection</h2>
+    <select class="chosen-select" data-placeholder="Choose multiple options..." multiple>
+        <option value=""></option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <!-- Example 3: Disable Search -->
+    <h2>Example 3: Disable Search</h2>
+    <select class="chosen-select" data-placeholder="Choose an option..." data-disable-search="true">
+        <option value=""></option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <!-- Example 4: Grouping Options -->
+    <h2>Example 4: Grouping Options</h2>
+    <select class="chosen-select" data-placeholder="Choose an option...">
+        <optgroup label="Group 1">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+        </optgroup>
+        <optgroup label="Group 2">
+            <option value="Option 3">Option 3</option>
+            <option value="Option 4">Option 4</option>
+        </optgroup>
+        <!-- Add more groups and options as needed -->
+    </select>
+
+    <!-- Example 5: Disabled Options -->
+    <h2>Example 5: Disabled Options</h2>
+    <select class="chosen-select" data-placeholder="Choose an option...">
+        <option value=""></option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2" disabled>Option 2 (disabled)</option>
+        <option value="Option 3">Option 3</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <!-- Example 6: Dynamically Add Options -->
+    <h2>Example 6: Dynamically Add Options</h2>
+    <select id="dynamic-select" class="chosen-select" data-placeholder="Choose an option...">
+        <option value=""></option>
+    </select>
+    <button onclick="addOption()">Add Option</button>
+
+    <script>
+        // Initialize Chosen select boxes
+        $(".chosen-select").chosen();
+
+        // Function to add options dynamically
+        function addOption() {
+            var optionValue = prompt("Enter option value:");
+            if (optionValue !== null && optionValue !== "") {
+                $("#dynamic-select").append('<option value="' + optionValue + '">' + optionValue + '</option>');
+                $("#dynamic-select").trigger("chosen:updated");
+            }
+        }
+    </script>
+</body>
+</html>

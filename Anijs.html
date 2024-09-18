@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniJS Example</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: coral;
+      margin: 10px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anijs/dist/anijs-min.js"></script>
+</head>
+<body>
+  <h1>AniJS Example</h1>
+  <div class="box" data-anijs="if: click, do: fadeIn, to: .box"></div>
+
+  <script>
+    $(document).ready(function() {
+      AniJS.run();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ScrollReveal.js Examples</title>
+  <style>
+    /* Some basic styling for demonstration purposes */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+    }
+
+    #section1 {
+      background-color: #f44336;
+    }
+
+    #section2 {
+      background-color: #2196f3;
+    }
+
+    #section3 {
+      background-color: #4caf50;
+    }
+
+    #section4 {
+      background-color: #ff9800;
+    }
+
+    #section5 {
+      background-color: #9c27b0;
+    }
+  </style>
+</head>
+<body>
+  <div id="section1" class="section">Section 1</div>
+  <div id="section2" class="section">Section 2</div>
+  <div id="section3" class="section">Section 3</div>
+  <div id="section4" class="section">Section 4</div>
+  <div id="section5" class="section">Section 5</div>
+
+  <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
+  <script>
+    // Initialize ScrollReveal
+    ScrollReveal().reveal('.section', {
+      duration: 1000, // Animation duration in milliseconds
+      distance: '500px', // Distance to the element
+      easing: 'ease-in-out', // Easing function
+      origin: 'bottom', // Origin of the animation
+      mobile: false, // Disable animation on mobile devices
+      reset: true // Reset animation on reveal
+    });
+  </script>
+</body>
+</html>

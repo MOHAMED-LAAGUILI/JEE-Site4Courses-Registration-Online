@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Anime.js Examples</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #ff7f50;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Anime.js Examples</h1>
+  
+  <div class="box" id="example1"></div>
+  <div class="box" id="example2"></div>
+  <div class="box" id="example3"></div>
+  <div class="box" id="example4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+      <path d="M10,50 C10,22 40,10 50,90" fill="none" stroke="#000" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="box" id="example5"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    // Example 1: Basic Animation
+    anime({
+      targets: '#example1',
+      translateX: 250,
+      rotate: '1turn',
+      backgroundColor: '#00f',
+      duration: 2000,
+      loop: true
+    });
+
+    // Example 2: Easing Functions
+    anime({
+      targets: '#example2',
+      translateX: 250,
+      easing: 'easeInOutQuad',
+      duration: 1500,
+      direction: 'alternate',
+      loop: true
+    });
+
+    // Example 3: Staggering Animations
+    anime({
+      targets: '#example3',
+      translateX: [150, -150],
+      delay: anime.stagger(100),
+      duration: 1000,
+      direction: 'alternate',
+      loop: true
+    });
+
+    // Example 4: SVG Path Animation
+    anime({
+      targets: '#example4 path',
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      duration: 2000,
+      delay: function(el, i) { return i * 250; },
+      direction: 'alternate',
+      loop: true
+    });
+
+    // Example 5: Custom Properties
+    anime({
+      targets: '#example5',
+      translateX: 250,
+      duration: 2000,
+      loop: true,
+      direction: 'alternate'
+    });
+  </script>
+</body>
+</html>
