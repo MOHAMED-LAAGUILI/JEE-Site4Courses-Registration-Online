@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Sign-up Form</title>
+
+  <!-- Material-UI CSS (MUI CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.11.0/umd/material-ui.min.css">
+  
+  <!-- Material-UI Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/icons-material@5.11.0/umd/material-ui-icons.min.css">
+
+  <!-- JustValidate JS (Form Validation) -->
+  <script src="https://cdn.jsdelivr.net/npm/just-validate@4.1.0/dist/just-validate.production.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 450px;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    h2 {
+      color: #1976d2;
+      margin-bottom: 20px;
+    }
+
+    .mui-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      background-color: #1976d2;
+      color: white;
+      transition: 0.3s ease;
+      box-shadow: 0px 4px 10px rgba(25, 118, 210, 0.3);
+    }
+
+    .mui-btn:hover {
+      background-color: #1565c0;
+      box-shadow: 0px 6px 15px rgba(25, 118, 210, 0.5);
+    }
+
+    .switch-text {
+      margin-top: 10px;
+      color: #757575;
+    }
+
+    .switch-text button {
+      color: #1976d2;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .form-icon {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .form-container {
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateX(-100%);
+      position: absolute;
+    }
+
+    .active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Custom Form Images */
+    .form-image {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .animated {
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Validation Message Styles */
+    .validation-message {
+      font-size: 0.875rem;
+      font-weight: bold;
+      color: green;
+      margin-top: 5px;
+    }
+
+    .validation-error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container animated">
+    <h2 id="form-title">Login</h2>
+
+    <!-- Login Form -->
+    <form id="login-form" class="form-container active">
+      <div class="mui-textfield">
+        <span class="material-icons form-icon">person</span>
+        <input type="text" id="login-username" name="username" placeholder="Username" required>
+        <div id="login-username-msg" class="validation-message"></div>
+      </div>
+
+      <div class="mui-textfield">
+        <span class="material-icons form-icon">lock</span>
+        <input type="password" id="login-password" name="password" placeholder="Password" required>
+        <div id="login-password-msg" class="validation-message"></div>
+      </div>
+
+      <button class="mui-btn mui-btn--raised" type="submit">Login</button>
+
+      <!-- Add a fun illustration for Login -->
+      <img src="" class="form-image" alt="Sign Up Illustration" width="" height="">
+    </form>
+
+    <!-- Sign-up Form -->
+    <form id="signup-form" class="form-container fade">
+      <div class="mui-textfield">
+        <span class="material-icons form-icon">person</span>
+        <input type="text" id="signup-username" name="username" placeholder="Username" required>
+        <div id="signup-username-msg" class="validation-message"></div>
+      </div>
+
+      <div class="mui-textfield">
+        <span class="material-icons form-icon">email</span>
+        <input type="email" id="signup-email" name="email" placeholder="Email" required>
+        <div id="signup-email-msg" class="validation-message"></div>
+      </div>
+
+      <div class="mui-textfield">
+        <span class="material-icons form-icon">lock</span>
+        <input type="password" id="signup-password" name="password" placeholder="Password" required>
+        <div id="signup-password-msg" class="validation-message"></div>
+      </div>
+
+      <button class="mui-btn mui-btn--raised" type="submit">Sign Up</button>
+
+      <!-- Add a fun illustration for Sign Up -->
+      <img src="https://tse1.mm.bing.net/th?id=OIP.nMdQ_VCIvfsX9k5fy-4vzQHaJ9&pid=Api&P=0&h=180
+" class="form-image" alt="Sign Up Illustration" width="20px" height="">
+    </form>
+
+    <div class="switch-text">
+      <span id="switch-text">Don't have an account? </span>
+      <button id="switch-btn" onclick="toggleForm()">Sign up</button>
+    </div>
+  </div>
+
+  <!-- Material-UI JS (MUI CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mui/material@5.11.0/umd/material-ui.min.js"></script>
+
+  <script>
+    // Elements
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const formTitle = document.getElementById('form-title');
+    const switchText = document.getElementById('switch-text');
+    const switchBtn = document.getElementById('switch-btn');
+
+    // Toggle between login and sign-up forms
+    function toggleForm() {
+      if (loginForm.classList.contains('active')) {
+        loginForm.classList.remove('active');
+        loginForm.classList.add('fade');
+        signupForm.classList.remove('fade');
+        signupForm.classList.add('active');
+        formTitle.textContent = 'Sign Up';
+        switchText.textContent = 'Already have an account? ';
+        switchBtn.textContent = 'Login';
+      } else {
+        signupForm.classList.remove('active');
+        signupForm.classList.add('fade');
+        loginForm.classList.remove('fade');
+        loginForm.classList.add('active');
+        formTitle.textContent = 'Login';
+        switchText.textContent = "Don't have an account? ";
+        switchBtn.textContent = 'Sign Up';
+      }
+    }
+
+    // Initialize JustValidate for live form validation
+    const loginValidation = new window.JustValidate('#login-form', {
+      validateBeforeSubmitting: true,
+      errorFieldCssClass: 'is-invalid',
+    });
+
+    loginValidation
+      .addField('#login-username', [
+        {
+          rule: 'required',
+          errorMessage: 'Username is required!',
+          successMessage: 'Looks good!',
+        },
+        {
+          rule: 'minLength',
+          value: 3,
+          errorMessage: 'Username must be at least 3 characters!',
+          successMessage: 'Valid username!',
+        },
+      ])
+      .addField('#login-password', [
+        {
+          rule: 'required',
+          errorMessage: 'Password is required!',
+          successMessage: 'Password set!',
+        },
+        {
+          rule: 'minLength',
+          value: 6,
+          errorMessage: 'Password must be at least 6 characters!',
+          successMessage: 'Strong password!',
+        },
+      ])
+           .onSuccess((event) => {
+        event.target.querySelectorAll('.validation-message').forEach((msg) => {
+          msg.textContent = ''; // Clear success messages
+        });
+      });
+
+    const signupValidation = new window.JustValidate('#signup-form', {
+      validateBeforeSubmitting: true,
+      errorFieldCssClass: 'is-invalid',
+    });
+
+    signupValidation
+      .addField('#signup-username', [
+        {
+          rule: 'required',
+          errorMessage: 'Username is required!',
+          successMessage: 'Looks good!',
+        },
+        {
+          rule: 'minLength',
+          value: 3,
+          errorMessage: 'Username must be at least 3 characters!',
+          successMessage: 'Valid username!',
+        },
+      ])
+      .addField('#signup-email', [
+        {
+          rule: 'required',
+          errorMessage: 'Email is required!',
+          successMessage: 'Email looks good!',
+        },
+        {
+          rule: 'email',
+          errorMessage: 'Invalid email format!',
+          successMessage: 'Valid email!',
+        },
+      ])
+      .addField('#signup-password', [
+        {
+          rule: 'required',
+          errorMessage: 'Password is required!',
+          successMessage: 'Password set!',
+        },
+        {
+          rule: 'minLength',
+          value: 6,
+          errorMessage: 'Password must be at least 6 characters!',
+          successMessage: 'Strong password!',
+        },
+      ])
+      .onSuccess((event) => {
+        event.target.querySelectorAll('.validation-message').forEach((msg) => {
+          msg.textContent = ''; // Clear success messages
+        });
+      });
+
+    // Display success message
+    function displaySuccessMessages(formId, fieldId, message) {
+      document.querySelector(`#${formId} #${fieldId}-msg`).textContent = message;
+    }
+
+    // Add live validation feedback
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', (event) => {
+        const formId = event.target.closest('form').id;
+        const fieldId = event.target.id;
+        const validation = formId === 'login-form' ? loginValidation : signupValidation;
+
+        const isValid = validation.validateField(event.target.id);
+
+        if (isValid) {
+          displaySuccessMessages(formId, fieldId, 'Looks good!');
+          event.target.nextElementSibling.classList.remove('validation-error');
+          event.target.nextElementSibling.classList.add('validation-message');
+        } else {
+          displaySuccessMessages(formId, fieldId, '');
+          event.target.nextElementSibling.classList.remove('validation-message');
+          event.target.nextElementSibling.classList.add('validation-error');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
