@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modern Elegant Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.5px;
+        }
+
+        .hero button {
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            background-color: #ff5722;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #e64a19;
+            transform: scale(1.1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 40px;
+            background-color: #f4f4f4;
+            text-align: center;
+            position: relative;
+        }
+
+        .about h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Section Divider */
+        .divider {
+            width: 60px;
+            height: 5px;
+            background-color: #ff5722;
+            margin: 30px auto;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        footer p {
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Soft Cutting Edges */
+        .cut-edge {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 40%, 60% 0);
+            background-color: #333;
+        }
+
+        .cut-edge-footer {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        /* Scroll Arrow */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            color: #ff5722;
+            cursor: pointer;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section with particles -->
+    <div id="particles-js" class="hero">
+        <div>
+            <h1>Innovate. Create. Succeed.</h1>
+            <p>Join our team and experience the power of technology in shaping the future of business.</p>
+            <button>Get Started</button>
+        </div>
+        <div class="scroll-arrow">↓</div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about cut-edge">
+        <h2>About Us</h2>
+        <div class="divider"></div>
+        <p>We are a team of passionate developers and designers who focus on delivering innovative, scalable, and user-centric solutions. We specialize in both frontend and backend technologies, providing full-stack services to help businesses grow and thrive in the digital world.</p>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="cut-edge-footer">
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 160,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1000
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.6,
+                    "random": false,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 4,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 50,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 180,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 8,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "window",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
